@@ -17,10 +17,10 @@ def ping(host):
     """
     Use the ping command  for get target ip
     """
-
-    # Option for the number of packets as a function of
-    param = '-n' if platform.system().lower()=='windows' else '-c'
-
+    ip = input("Enter host name : ")
+    ip = socket.gethostbyname(ip)
+    print(ip)
+    
     # Building the command. Ex: "ping -c 1 google.com"
     command = ['ping', param, '1', host]
     return ping_clear(subprocess.check_output(command).decode())
